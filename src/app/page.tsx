@@ -1,7 +1,7 @@
 const HomePage = () => {
   return (
-    <div>
-      <h1>Firebase Demo</h1>
+    <div className="py-10">
+      <h1 className="font-bold text-4xl">Firebase Demo</h1>
     </div>
   );
 };

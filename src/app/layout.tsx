@@ -1,9 +1,11 @@
 import { Inter } from "next/font/google";
+import { AuthContextProvider } from "../context/AuthContext";
 
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import "./globals.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +21,40 @@ type RootLayoutProps = {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} flex flex-col h-screen`}>
+        <AuthContextProvider>
+          <nav>
+            <ul>
+              <li>
+                <Link href="/" className="hover:underline">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/sign-in" className="hover:underline">
+                  Sign In
+                </Link>
+              </li>
+              <li>
+                <Link href="/sign-up" className="hover:underline">
+                  Sign Up
+                </Link>
+              </li>
+              <li>
+                <Link href="/admin" className="hover:underline">
+                  Admin
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          {children}
+
+          <footer className="bg-slate-600 mt-auto py-4 text-center text-white">
+            Next.js 13 + Firebase!
+          </footer>
+        </AuthContextProvider>
+      </body>
     </html>
   );
 };
