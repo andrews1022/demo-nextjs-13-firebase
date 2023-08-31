@@ -30,46 +30,44 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="wrapper">
-      <div className="form-wrapper">
-        <h1 className="mt-60 mb-30">Sign up</h1>
+    <div className="wrapper pt-10">
+      <h1 className="font-bold text-4xl">Sign In</h1>
 
-        <form onSubmit={handleSubmit} className="form">
-          <label htmlFor="email">
-            <p>Email</p>
-            <input
-              onChange={(event) => setEmail(event.target.value)}
-              required
-              type="email"
-              name="email"
-              id="email"
-              placeholder="example@mail.com"
-              className="block outline"
-            />
-          </label>
+      <form onSubmit={handleSubmit} className="form">
+        <label htmlFor="email">
+          <p>Email</p>
+          <input
+            onChange={(event) => setEmail(event.target.value)}
+            required
+            type="email"
+            name="email"
+            id="email"
+            placeholder="example@mail.com"
+            className="block outline"
+          />
+        </label>
 
-          <label htmlFor="password">
-            <p>Password</p>
-            <input
-              onChange={(event) => setPassword(event.target.value)}
-              required
-              type="password"
-              name="password"
-              id="password"
-              placeholder="password"
-              className="block outline"
-            />
-          </label>
+        <label htmlFor="password">
+          <p>Password</p>
+          <input
+            onChange={(event) => setPassword(event.target.value)}
+            required
+            type="password"
+            name="password"
+            id="password"
+            placeholder="password"
+            className="block outline"
+          />
+        </label>
 
-          {emailAlreadyInUse ? (
-            <p className="text-red-600">An account with that email already exists</p>
-          ) : null}
+        {emailAlreadyInUse ? (
+          <p className="text-red-600">An account with that email already exists</p>
+        ) : null}
 
-          <button className="inline-block" type="submit">
-            Sign up
-          </button>
-        </form>
-      </div>
+        <button className="inline-block" type="submit">
+          Sign up
+        </button>
+      </form>
     </div>
   );
 };

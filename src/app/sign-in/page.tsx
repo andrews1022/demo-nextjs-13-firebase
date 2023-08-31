@@ -27,40 +27,38 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="wrapper">
-      <div className="form-wrapper">
-        <h1 className="mt-60 mb-30">Sign In</h1>
+    <div className="wrapper pt-10">
+      <h1 className="font-bold text-4xl">Sign In</h1>
 
-        <form onSubmit={handleSubmit} className="form">
-          <label htmlFor="email">
-            <p>Email</p>
-            <input
-              onChange={(event) => setEmail(event.target.value)}
-              required
-              type="email"
-              name="email"
-              id="email"
-              placeholder="example@mail.com"
-              className="block outline"
-            />
-          </label>
+      <form onSubmit={handleSubmit} className="form">
+        <label htmlFor="email">
+          <p>Email</p>
+          <input
+            onChange={(event) => setEmail(event.target.value)}
+            required
+            type="email"
+            name="email"
+            id="email"
+            placeholder="example@mail.com"
+            className="block outline"
+          />
+        </label>
 
-          <label htmlFor="password">
-            <p>Password</p>
-            <input
-              onChange={(event) => setPassword(event.target.value)}
-              required
-              type="password"
-              name="password"
-              id="password"
-              placeholder="password"
-              className="block outline"
-            />
-          </label>
+        <label htmlFor="password">
+          <p>Password</p>
+          <input
+            onChange={(event) => setPassword(event.target.value)}
+            required
+            type="password"
+            name="password"
+            id="password"
+            placeholder="password"
+            className="block outline"
+          />
+        </label>
 
-          <button type="submit">Sign In</button>
-        </form>
-      </div>
+        <button type="submit">Sign In</button>
+      </form>
     </div>
   );
 };

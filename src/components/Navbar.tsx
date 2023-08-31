@@ -1,29 +1,21 @@
 import Link from "next/link";
 
+const links = [
+  { text: "Home", url: "/" },
+  { text: "Sign In", url: "/sign-in" },
+  { text: "Sign Up", url: "/sign-up" },
+  { text: "Admin", url: "/admin" }
+];
+
 const Navbar = () => {
   return (
     <nav>
       <ul className="flex gap-2">
-        <li>
-          <Link href="/" className="hover:underline">
-            Home
+        {links.map((link) => (
+          <Link key={link.text} href={link.url} className="hover:underline">
+            {link.text}
           </Link>
-        </li>
-        <li>
-          <Link href="/sign-in" className="hover:underline">
-            Sign In
-          </Link>
-        </li>
-        <li>
-          <Link href="/sign-up" className="hover:underline">
-            Sign Up
-          </Link>
-        </li>
-        <li>
-          <Link href="/admin" className="hover:underline">
-            Admin
-          </Link>
-        </li>
+        ))}
       </ul>
     </nav>
   );
