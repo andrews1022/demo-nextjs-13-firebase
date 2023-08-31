@@ -1,11 +1,13 @@
 import { Inter } from "next/font/google";
+
+import Navbar from "@/components/Navbar";
 import { AuthContextProvider } from "../context/AuthContext";
 
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import "./globals.css";
-import Link from "next/link";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,38 +23,17 @@ type RootLayoutProps = {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex flex-col h-screen`}>
+      <body className={inter.className}>
         <AuthContextProvider>
-          <nav>
-            <ul>
-              <li>
-                <Link href="/" className="hover:underline">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/sign-in" className="hover:underline">
-                  Sign In
-                </Link>
-              </li>
-              <li>
-                <Link href="/sign-up" className="hover:underline">
-                  Sign Up
-                </Link>
-              </li>
-              <li>
-                <Link href="/admin" className="hover:underline">
-                  Admin
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <div className="flex flex-col h-screen">
+            <div className="pt-4 px-4">
+              <Navbar />
 
-          {children}
+              {children}
+            </div>
 
-          <footer className="bg-slate-600 mt-auto py-4 text-center text-white">
-            Next.js 13 + Firebase!
-          </footer>
+            <Footer />
+          </div>
         </AuthContextProvider>
       </body>
     </html>

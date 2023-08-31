@@ -1,45 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { useAuthContext } from "@/context/AuthContext";
-import { getAuth, signOut } from "firebase/auth";
-import app from "@/firebase/config";
-// import logout from "@/firebase/auth/logout";
 
 const AdminPage = () => {
-  const auth = getAuth(app);
-  const user = useAuthContext();
-  const router = useRouter();
-
-  // redirect to home page if user is not a user
-  // useEffect(() => {
-  //   if (user === null) router.push("/");
-  // }, [user]);
-
-  const handleLogout = async () => {
-    // signOut(auth).then(() => {
-    //   // Sign-out successful.
-    // }).catch((error) => {
-    //   // An error happened.
-    // });
-
-    try {
-      //Sign out with the Firebase client
-      await signOut(auth);
-
-      //Clear the cookies in the server
-      const res = await fetch("http://localhost:3000/api/signOut", {
-        method: "POST"
-      });
-
-      if (res.ok) {
-        router.push("/");
-      }
-    } catch (error) {
-      console.log("error: ", error);
-    }
-  };
+  const { handleLogout, user } = useAuthContext();
 
   return user ? (
     <div>

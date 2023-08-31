@@ -1,11 +1,7 @@
-// sign in an existing user with their email/password
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config";
 
-import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import type { UserCredential } from "firebase/auth";
-
-import app from "../config";
-
-const auth = getAuth(app);
 
 const signIn = async (email: string, password: string) => {
   let result: UserCredential | null = null;

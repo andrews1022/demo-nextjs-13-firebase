@@ -1,11 +1,7 @@
-// create a new user with their email and password
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config";
 
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import type { UserCredential } from "firebase/auth";
-
-import app from "../config";
-
-const auth = getAuth(app);
 
 const signUp = async (email: string, password: string) => {
   let result: UserCredential | null = null;

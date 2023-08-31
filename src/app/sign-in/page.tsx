@@ -41,7 +41,7 @@ const SignInPage = () => {
               name="email"
               id="email"
               placeholder="example@mail.com"
-              className="outline"
+              className="block outline"
             />
           </label>
 
@@ -54,7 +54,7 @@ const SignInPage = () => {
               name="password"
               id="password"
               placeholder="password"
-              className="outline"
+              className="block outline"
             />
           </label>
 
